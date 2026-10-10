@@ -1,6 +1,8 @@
 # SE Spaceship
 [![Automatic Dependency Submission](https://github.com/Csegzi/se-lab/actions/workflows/dependency-graph/auto-submission/badge.svg)](https://github.com/Csegzi/se-lab/actions/workflows/dependency-graph/auto-submission)
 This is a sample application for the [Software Engineering](http://www.mit.bme.hu/oktatas/targyak/vimiab04) course at BME MIT.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 The application is simplified and deliberately contains bugs.
 
