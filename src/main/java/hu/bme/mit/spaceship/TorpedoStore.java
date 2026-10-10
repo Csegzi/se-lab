@@ -11,6 +11,8 @@ public class TorpedoStore {
 
   // rate of failing to fire torpedos [0.0, 1.0]
   private double FAILURE_RATE = 0.0; //NOSONAR
+  //CHANGES! Relocated the creation of the Random object so it only creates once
+  private Random generator = new Random();
 
   private int torpedoCount = 0;
 
@@ -30,18 +32,19 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
-      new IllegalArgumentException("numberOfTorpedos");
+      //CHANGES!! I corrected the missing throw term
+      throw new IllegalArgumentException("numberOfTorpedos");
     }
 
     boolean success = false;
 
     // simulate random overheating of the launcher bay which prevents firing
-    Random generator = new Random();
     double r = generator.nextDouble();
 
     if (r >= FAILURE_RATE) {
       // successful firing
-      this.torpedoCount =- numberOfTorpedos;
+      //CHANGES! I fixed the wrong use of -= operator
+      this.torpedoCount -= numberOfTorpedos;
       success = true;
     } else {
       // simulated failure
